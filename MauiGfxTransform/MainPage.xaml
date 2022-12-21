@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiGfxTransform"
+             x:Class="MauiGfxTransform.MainPage"
+             x:DataType="local:MainViewModel">
+    <Grid RowDefinitions="150,*">
+        <VerticalStackLayout Grid.Row="0">
+            <HorizontalStackLayout>
+                <Label Text="Scale"/>
+                <Slider Value="{Binding Scale}" Minimum="0.1" Maximum="10" WidthRequest="200"/>
+                <Entry Text="{Binding Scale}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Camera X"/>
+                <Slider Value="{Binding CameraX}" Minimum="-980" Maximum="980" WidthRequest="200"/>
+                <Entry Text="{Binding CameraX}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Camera Y"/>
+                <Slider Value="{Binding CameraY}" Minimum="-480" Maximum="480" WidthRequest="200"/>
+                <Entry Text="{Binding CameraY}"/>
+            </HorizontalStackLayout>
+            <Button Text="Zoom To Fit" WidthRequest="150" Command="{Binding ZoomToFitCommand}"/>
+        </VerticalStackLayout>
+        <Border Grid.Row="1" Stroke="Black" StrokeThickness="1">
+            <GraphicsView x:Name="graphicsView"/>
+        </Border>
+    </Grid>
+</ContentPage>
